@@ -9,6 +9,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 1b41d34c5ce799e43a56c2aa64e447d2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1b41d34c5ce799e43a56c2aa64e447d2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1b41d34c5ce799e43a56c2aa64e447d2, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1b41d34c5ce799e43a56c2aa64e447d2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -48,9 +60,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1b41d34c5ce799e43a56c2aa64e447d2, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1b41d34c5ce799e43a56c2aa64e447d2, type: 3}
       propertyPath: m_Name
       value: Jelly Fish
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1b41d34c5ce799e43a56c2aa64e447d2, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2223639932434330405, guid: 1b41d34c5ce799e43a56c2aa64e447d2, type: 3}
       propertyPath: m_Enabled
@@ -66,6 +86,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1b41d34c5ce799e43a56c2aa64e447d2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6931311049133582319}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1b41d34c5ce799e43a56c2aa64e447d2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5495902730514042806}
   m_SourcePrefab: {fileID: 100100000, guid: 1b41d34c5ce799e43a56c2aa64e447d2, type: 3}
 --- !u!1 &5852807814377603563 stripped
 GameObject:
@@ -91,8 +114,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.2, y: 0.6, z: 0.2}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Size: {x: 0.2, y: 0.7, z: 0.2}
+  m_Center: {x: 0, y: 0.45, z: 0}
 --- !u!114 &6931311049133582319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,3 +133,30 @@ MonoBehaviour:
   sprintDuration: 2
   pauseDuration: 2
   rotationDuration: 1
+--- !u!54 &5495902730514042806
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5852807814377603563}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0.2
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

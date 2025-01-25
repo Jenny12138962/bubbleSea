@@ -5,7 +5,7 @@ using UnityEngine;
 public class CountdownTimer : MonoBehaviour
 {
     private TMPro.TMP_Text _inputField;
-    public float remainingTime; // ¼ÆÊ±Æ÷Ê£ÓàÊ±¼ä
+    public float remainingTime; // ï¿½ï¿½Ê±ï¿½ï¿½Ê£ï¿½ï¿½Ê±ï¿½ï¿½
     void Awake()
     {
         _inputField = GetComponentInChildren<TMPro.TMP_Text>();
@@ -23,10 +23,11 @@ public class CountdownTimer : MonoBehaviour
             remainingTime -= Time.deltaTime;
             DisplayTime(remainingTime);
         }
-        else
+        else if (remainingTime < 0)
         {
-            // Ê±¼äµ½£¬Ö´ÐÐÓÎÏ·½áÊøÂß¼­
+            // Ê±ï¿½äµ½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½
             Debug.Log("Game Over!");
+            remainingTime = 0;
         }
     }
 
