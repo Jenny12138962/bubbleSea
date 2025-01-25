@@ -7,16 +7,17 @@ using UnityEngine.SceneManagement;
 
 public class CollisionManager : MonoBehaviour
 {
-    private SpaceCraftController spaceCraftController;
+    private SubmachineController submachineController;
     void Awake()
     {
-        spaceCraftController = GetComponent<SpaceCraftController>();
+        submachineController = GetComponent<SubmachineController>();
     }
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(collision.ToString());
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            spaceCraftController.StartCoroutine(spaceCraftController.PauseMovement());
+            submachineController.StartCoroutine(submachineController.PauseMovement());
         }
     }
 }

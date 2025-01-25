@@ -9,46 +9,6 @@ public class SpaceCraftController : MonoBehaviour
     public float reverseSpeed = 20.0f; // 飞船的倒车速度
     public float pauseDuration = 2.0f; // 暂停时间
 
-    private Transform trans; // 飞船的Transform组件
-    private Camera mainCamera; // 主摄像头
-    private Rigidbody rb; // 飞船的Rigidbody组件
-    private Vector3 lastPosition;
-    private void Awake()
-    {
-        trans = GetComponent<Transform>();
-        mainCamera = Camera.main;
-        rb = GetComponent<Rigidbody>();
-    }
-
-    private void Start()
-    {
-        rb.isKinematic = false;
-        rb.useGravity = false;
-        rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
-        rb.freezeRotation = true;
-        lastPosition = transform.position;
-    }
-
-    void Update()
-    {
-        // Calculate the speed (distance per second)
-        // Update the last position
-        lastPosition = transform.position; 
-        Vector3 targetDirection = mainCamera.transform.forward;
-        Quaternion targetRotationXY = Quaternion.LookRotation(targetDirection, Vector3.up);
-        Quaternion zRotation = Quaternion.Euler(0, -90, 0);
-        Quaternion finalRotation = targetRotationXY * zRotation;
-        if (Math.Abs(targetDirection.x) >= 0.08 || Math.Abs(targetDirection.y) >= 0.08)
-        {
-            trans.rotation = Quaternion.RotateTowards(trans.rotation, finalRotation, angularSpeed * Time.deltaTime);
-        }
-        else
-        {
-            trans.rotation = trans.rotation;
-        }
-        
-        rb.velocity = trans.right * speed;
-    }
 
     public IEnumerator PauseMovement()
     {
