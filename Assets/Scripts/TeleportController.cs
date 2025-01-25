@@ -91,8 +91,8 @@ public class TeleportController : MonoBehaviour
             teleportMode = false;
             teleportMarker.SetActive(false);
 
-            StartCoroutine(ApplyWideAngleEffect());
-            currentShakeDuration = shakeDuration;
+            //StartCoroutine(ApplyWideAngleEffect());
+            //currentShakeDuration = shakeDuration;
 
             // if (teleportParticleSystem != null)
             // {

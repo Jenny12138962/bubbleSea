@@ -13,7 +13,6 @@ public class CountdownTimer : MonoBehaviour
 
     void Start()
     {
-        remainingTime = 60;
     }
 
     void Update()

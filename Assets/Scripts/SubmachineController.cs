@@ -8,6 +8,7 @@ public class SubmachineController : MonoBehaviour
 {
     public float speed = 5.0f;
     public float angularSpeed = 20.0f;
+    public float pauseDuration;
     private Transform trans;
     private Camera mainCamera;
     private Rigidbody rb;
@@ -62,12 +63,16 @@ public class SubmachineController : MonoBehaviour
             float yawDelta = adjustedyawInput * angularSpeed * Time.deltaTime;      // 偏航（绕y轴）
             
             // 应用旋转 - 只允许绕y轴（偏航）和z轴（俯仰）旋转
+            // Quaternion targetRotation = Quaternion.Euler(0f, pitchDelta, yawDelta);
+            // trans.rotation = Quaternion.Slerp(trans.rotation, targetRotation, angularSpeed * Time.deltaTime);
             trans.Rotate(0f, pitchDelta, yawDelta, Space.World);
             Vector3 currentEuler = trans.rotation.eulerAngles;
             trans.rotation = Quaternion.Euler(0f, currentEuler.y, currentEuler.z);
             
             // 更新速度方向
-            rb.velocity = transform.right * speed;
+
+            // rb.velocity = transform.right * speed;
+            trans.position += transform.right * speed * Time.deltaTime;
 
             if (teleportController.IsInTeleportMode())
             {
@@ -127,5 +132,14 @@ public class SubmachineController : MonoBehaviour
         {
             teleportController.CancelTeleport();
         }
+    }
+    public IEnumerator PauseMovement()
+    {
+        float originalSpeed = speed;
+        speed = 0; // 暂停移动
+        Debug.Log("PauseMovement");
+        yield return new WaitForSeconds(pauseDuration); // 暂停两秒
+        speed = originalSpeed; // 恢复移动
+        Debug.Log("ResumeMovement");
     }
 }
